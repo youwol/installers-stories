@@ -10,7 +10,7 @@ export async function install(
                 contextMenuActions: ({ node, explorer, assetsGtwClient }) => [
                     {
                         name: 'New Story',
-                        icon: 'fas fa-story',
+                        icon: 'fas fa-book',
                         authorized: true,
                         exe: async () => {
                             explorer.newAsset({
@@ -23,7 +23,7 @@ export async function install(
                                 }),
                             })
                         },
-                        applicable: () => node instanceof Explorer.FolderNode,
+                        applicable: () => Explorer.isInstanceOfFolderNode(node),
                     },
                 ],
                 applications: ['@youwol/stories'],
