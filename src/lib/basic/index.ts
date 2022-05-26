@@ -1,8 +1,6 @@
-import { Core, Explorer } from '@youwol/platform-essentials'
-
-export async function install(
-    installer: Core.Installer,
-): Promise<Core.Installer> {
+import { Installer } from '@youwol/os-core'
+import { ExplorerBackend } from '@youwol/http-clients'
+export async function install(installer: Installer): Promise<Installer> {
     return installer.with({
         fromManifests: [
             {
@@ -14,16 +12,20 @@ export async function install(
                         authorized: true,
                         exe: async () => {
                             explorer.newAsset({
-                                parentNode: node as Explorer.AnyFolderNode,
+                                parentNode:
+                                    node as ExplorerBackend.GetFolderResponse,
                                 pendingName: 'new story',
                                 kind: 'story',
                                 request: assetsGtwClient.stories.create$({
-                                    queryParameters: { folderId: node.id },
+                                    queryParameters: {
+                                        folderId: node.folderId,
+                                    },
                                     body: { title: 'new story' },
                                 }),
                             })
                         },
-                        applicable: () => Explorer.isInstanceOfFolderNode(node),
+                        applicable: () =>
+                            ExplorerBackend.isInstanceOfFolderResponse(node),
                     },
                 ],
                 applications: ['@youwol/stories'],
