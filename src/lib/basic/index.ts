@@ -15,8 +15,7 @@ export async function install(installer: Installer): Promise<Installer> {
                                 parentNode:
                                     node as ExplorerBackend.GetFolderResponse,
                                 pendingName: 'new story',
-                                kind: 'story',
-                                request: assetsGtwClient.stories.create$({
+                                response$: assetsGtwClient.stories.create$({
                                     queryParameters: {
                                         folderId: node.folderId,
                                     },
