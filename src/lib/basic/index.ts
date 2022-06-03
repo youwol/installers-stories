@@ -8,8 +8,8 @@ export async function install(installer: Installer): Promise<Installer> {
                 contextMenuActions: ({ node, explorer, assetsGtwClient }) => [
                     {
                         name: 'New Story',
-                        icon: 'fas fa-book',
-                        authorized: true,
+                        icon: { class: 'fas fa-book' },
+                        enabled: () => true,
                         exe: async () => {
                             explorer.newAsset({
                                 parentNode:
