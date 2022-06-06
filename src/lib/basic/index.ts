@@ -32,7 +32,7 @@ export async function install(installer: Installer): Promise<Installer> {
                     '@youwol/stories': {
                         toolboxes: [
                             '@youwol/grapes-basics',
-                            '@youwol/@youwol/grapes-text-editors',
+                            '@youwol/grapes-text-editors',
                         ],
                     },
                 },
