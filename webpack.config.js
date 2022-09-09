@@ -1,8 +1,14 @@
+const apiVersion = "002"
+const externals = {
+    "@youwol/os-core": "@youwol/os-core_APIv006",
+    "@youwol/http-clients": "@youwol/http-clients_APIv01"
+}
 const path = require('path')
 const pkg = require('./package.json')
 const ROOT = path.resolve(__dirname, 'src')
 const DESTINATION = path.resolve(__dirname, 'dist')
 const { BundleAnalyzerPlugin } = require('webpack-bundle-analyzer')
+
 module.exports = {
     context: ROOT,
     entry: {
@@ -19,7 +25,7 @@ module.exports = {
         path: DESTINATION,
         libraryTarget: 'umd',
         umdNamedDefine: true,
-        library: pkg.name,
+        library: `${pkg.name}_APIv${apiVersion}`,
         filename: pkg.name + '.js',
         globalObject: `(typeof self !== 'undefined' ? self : this)`,
     },
@@ -27,22 +33,7 @@ module.exports = {
         extensions: ['.ts', 'tsx', '.js'],
         modules: [ROOT, 'node_modules'],
     },
-    externals: [
-        {
-            rxjs: 'rxjs',
-            'rxjs/operators': {
-                commonjs: 'rxjs/operators',
-                commonjs2: 'rxjs/operators',
-                root: ['rxjs', 'operators'],
-            },
-            '@youwol/os-core': '@youwol/os-core',
-            '@youwol/cdn-client': '@youwol/cdn-client',
-            '@youwol/flux-view': '@youwol/flux-view',
-            '@youwol/http-clients': '@youwol/http-clients',
-            lodash: '_',
-            uuid: 'uuid',
-        },
-    ],
+    externals,
     module: {
         rules: [
             {
@@ -53,11 +44,4 @@ module.exports = {
         ],
     },
     devtool: 'source-map',
-    devServer: {
-        static: {
-            directory: path.join(__dirname, './src'),
-        },
-        compress: true,
-        port: 9000,
-    },
 }
