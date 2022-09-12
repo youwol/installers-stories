@@ -1,7 +1,9 @@
+# @youwol/installers-stories
+
 Collections of installers related to the stories application of YouWol
 
 This library is part of the hybrid cloud/local ecosystem 
-[YouWol](https://platform.youwol.com/applications/@youwol/platform/latest)
+[YouWol](https://platform.youwol.com/applications/@youwol/platform/latest).
 
 ## Links
 
