@@ -20,8 +20,8 @@ template = Template(
     dependencies=Dependencies(
         runTime=RunTimeDeps(
             load={
-                "@youwol/os-core": "^0.1.0",
-                "@youwol/http-clients": "^1.0.0"
+                "@youwol/os-core": "^0.1.1",
+                "@youwol/http-clients": "^1.0.2"
             }
         )
     ),
