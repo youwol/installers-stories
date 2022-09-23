@@ -1065,10 +1065,10 @@
   dependencies:
     rxjs "^6.5.5"
 
-"@youwol/os-core@^0.1.1":
-  version "0.1.1"
-  resolved "https://registry.yarnpkg.com/@youwol/os-core/-/os-core-0.1.1.tgz#dda2f7e94b78d49a4d186b45c7f345eab4a88821"
-  integrity sha512-7IhAnJwByGbaHbuz/ViALbL6mfdOYyNR4SYICBfyd1GI9OPKorNp1WlmP3gOqatwHOD5bELzIJBpnJT4PjtFng==
+"@youwol/os-core@^0.1.2":
+  version "0.1.2"
+  resolved "https://registry.yarnpkg.com/@youwol/os-core/-/os-core-0.1.2.tgz#cd04a47a14401060626455a83a22856267470d5d"
+  integrity sha512-oWxci1fcuY9W5YZniLJEEI2du9WA/3OJbWJDnri0rmfivuY+Vm7IFssRZx2NXrz6W6dk5yF/CJ/Oh5iKLOhPFA==
   dependencies:
     "@youwol/cdn-client" "^1.0.2"
     "@youwol/flux-view" "^1.0.3"
