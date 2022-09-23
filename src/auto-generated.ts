@@ -47,7 +47,7 @@ const entries = {
 export const setup = {
     name:'@youwol/installers-stories',
         assetId:'QHlvdXdvbC9pbnN0YWxsZXJzLXN0b3JpZXM=',
-    version:'0.1.2-wip',
+    version:'0.1.2',
     shortDescription:"Collections of installers related to the stories application of YouWol",
     developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/installers-stories',
     npmPackage:'https://www.npmjs.com/package/@youwol/installers-stories',
@@ -82,7 +82,7 @@ export const setup = {
         const parameters = installParameters || {}
         const scripts = [
             ...(parameters.scripts || []),
-            `@youwol/installers-stories#0.1.2-wip~dist/@youwol/installers-stories/${entry.name}.js`
+            `@youwol/installers-stories#0.1.2~dist/@youwol/installers-stories/${entry.name}.js`
         ]
         const modules = [
             ...(parameters.modules || []),
