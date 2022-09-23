@@ -1,26 +1,43 @@
-import { Installer } from '@youwol/os-core'
-import { ExplorerBackend } from '@youwol/http-clients'
+import { Installer, ExplorerState } from '@youwol/os-core'
+import {
+    ExplorerBackend,
+    AssetsGateway,
+    raiseHTTPErrors,
+} from '@youwol/http-clients'
+
 export async function install(installer: Installer): Promise<Installer> {
     return installer.with({
         fromManifests: [
+            /* ExplorerBackend.GetItemResponse | ExplorerBackend.GetFolderResponse  AssetsGatewayClient*/
             {
                 id: '@youwol/installers-stories.basic',
-                contextMenuActions: ({ node, explorer, assetsGtwClient }) => [
+                contextMenuActions: ({
+                    node,
+                    explorer,
+                    assetsGtwClient,
+                }: {
+                    node:
+                        | ExplorerBackend.GetItemResponse
+                        | ExplorerBackend.GetFolderResponse
+                    explorer: ExplorerState
+                    assetsGtwClient: AssetsGateway.AssetsGatewayClient
+                }) => [
                     {
                         name: 'New Story',
                         icon: { class: 'fas fa-book' },
                         enabled: () => true,
                         exe: async () => {
                             explorer.newAsset({
-                                parentNode:
-                                    node as ExplorerBackend.GetFolderResponse,
+                                parentNode: node,
                                 pendingName: 'new story',
-                                response$: assetsGtwClient.stories.create$({
-                                    queryParameters: {
-                                        folderId: node.folderId,
-                                    },
-                                    body: { title: 'new story' },
-                                }),
+                                response$: assetsGtwClient.stories
+                                    .create$({
+                                        queryParameters: {
+                                            folderId: node.folderId,
+                                        },
+                                        body: { title: 'new story' },
+                                    })
+                                    .pipe(raiseHTTPErrors()),
                             })
                         },
                         applicable: () =>
