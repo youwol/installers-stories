@@ -2,7 +2,7 @@ import shutil
 from pathlib import Path
 
 from youwol.pipelines.pipeline_typescript_weback_npm import Template, PackageType, Dependencies, \
-    RunTimeDeps, generate_template
+    RunTimeDeps, generate_template, Bundles, MainModule
 from youwol_utils import parse_json
 
 folder_path = Path(__file__).parent
@@ -19,10 +19,16 @@ template = Template(
     author=pkg_json['author'],
     dependencies=Dependencies(
         runTime=RunTimeDeps(
-            load={
-                "@youwol/os-core": "^0.1.1",
+            externals={
+                "@youwol/os-core": "^0.1.2",
                 "@youwol/http-clients": "^1.0.2"
             }
+        )
+    ),
+    bundles=Bundles(
+        mainModule=MainModule(
+            entryFile='./lib/index.ts',
+            loadDependencies=["@youwol/os-core", "@youwol/http-clients"]
         )
     ),
     userGuide=True
