@@ -1,9 +1,6 @@
 import { Installer, ExplorerState } from '@youwol/os-core'
-import {
-    ExplorerBackend,
-    AssetsGateway,
-    raiseHTTPErrors,
-} from '@youwol/http-clients'
+import { ExplorerBackend, AssetsGateway } from '@youwol/http-clients'
+import { raiseHTTPErrors } from '@youwol/http-primitives'
 
 export async function install(installer: Installer): Promise<Installer> {
     return installer.with({
