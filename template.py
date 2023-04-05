@@ -20,15 +20,16 @@ template = Template(
     dependencies=Dependencies(
         runTime=RunTimeDeps(
             externals={
-                "@youwol/os-core": "^0.1.2",
-                "@youwol/http-clients": "^1.0.2"
+                "@youwol/os-core": "^0.1.8",
+                "@youwol/http-clients": "^2.0.5",
+                "@youwol/http-primitives": "^0.1.2",
             }
         )
     ),
     bundles=Bundles(
         mainModule=MainModule(
             entryFile='./lib/index.ts',
-            loadDependencies=["@youwol/os-core", "@youwol/http-clients"]
+            loadDependencies=["@youwol/os-core", "@youwol/http-clients", "@youwol/http-primitives"]
         )
     ),
     userGuide=True
