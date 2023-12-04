@@ -1,7 +1,7 @@
 {
     "name": "@youwol/installers-stories",
     "description": "Collections of installers related to the stories application of YouWol",
-    "version": "0.1.3",
+    "version": "0.1.4-wip",
     "author": "greinisch@youwol.com",
     "homepage": "https://github.com/youwol/installers-stories#README.md",
     "main": "dist/@youwol/installers-stories.js",
