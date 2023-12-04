@@ -59,7 +59,7 @@ export const setup = {
         assetId:'QHlvdXdvbC9pbnN0YWxsZXJzLXN0b3JpZXM=',
     version:'0.1.3',
     shortDescription:"Collections of installers related to the stories application of YouWol",
-    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/installers-stories',
+    developerDocumentation:'https://platform.youwol.com/applications/@youwol/cdn-explorer/latest?package=@youwol/installers-stories&tab=doc',
     npmPackage:'https://www.npmjs.com/package/@youwol/installers-stories',
     sourceGithub:'https://github.com/youwol/installers-stories',
     userGuide:'https://l.youwol.com/doc/@youwol/installers-stories',
@@ -74,7 +74,7 @@ export const setup = {
     },
 
     installMainModule: ({cdnClient, installParameters}:{
-        cdnClient:{install:(unknown) => Promise<Window>},
+        cdnClient:{install:(unknown) => Promise<WindowOrWorkerGlobalScope>},
         installParameters?
     }) => {
         const parameters = installParameters || {}
@@ -93,7 +93,7 @@ export const setup = {
     },
     installAuxiliaryModule: ({name, cdnClient, installParameters}:{
         name: string,
-        cdnClient:{install:(unknown) => Promise<Window>},
+        cdnClient:{install:(unknown) => Promise<WindowOrWorkerGlobalScope>},
         installParameters?
     }) => {
         const entry = secondaryEntries[name]
